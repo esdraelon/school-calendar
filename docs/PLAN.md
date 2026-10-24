@@ -126,7 +126,7 @@ this VM and hal9k at the tip of `stack/m0-scaffold`. Pushed to
 ululuth, NOT merged to main. No collector code, no event code,
 no deploy. See `docs/CHECKLIST.md`.
 
-### M1 — Source inventory ONLY — no collectors
+### M1 — Source inventory ONLY — no collectors — IN PROGRESS (this branch)
 
 Enumerate every event source before any build, reconciled
 against ground truth (real calendars, real mailboxes, real
@@ -145,12 +145,15 @@ access — read them, don't remember them):
   coverage, and known overlap with other sources (dedup
   candidates for M3).
 
-Deliverable: an inventory document plus a source-registry schema
-draft (kinds, ids, health fields). NO collector code, NO
+Deliverable: an inventory document (`docs/SOURCE-INVENTORY.md`)
+plus a normalized event schema draft (`docs/EVENT-SCHEMA.md`,
+kinds, ids, provenance, health fields, merge/dedup keys,
+paging/coverage proof fields). NO collector code, NO
 ingest code, NO store code — inventory only. Exit criterion:
 every source in CALENDAR-EVENTS.md's expected list is either
 inventoried or explicitly recorded as not found, with the
-evidence for each.
+evidence for each. See `docs/CHECKLIST.md` (M1 section) for
+the execution checklist.
 
 ### M2 — Collectors (outline)
 
