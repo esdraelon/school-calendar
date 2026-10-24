@@ -29,7 +29,7 @@ before the first line of code. Tick order is execution order._
         dependency exists yet).
   - [x] `.gitignore`, README.md.
 - [x] Gates green on this VM at the tip (`scripts/verify.sh`).
-- [ ] Push `stack/m0-scaffold` to ululuth; gates green on hal9k
+- [x] Push `stack/m0-scaffold` to ululuth; gates green on hal9k
       at the same tip (hal9k clone checks out the branch).
 - [ ] Report: branch + tip, gates evidence on both machines,
       repo paths, plan doc location, surprises. Do NOT merge to
