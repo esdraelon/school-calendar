@@ -1,0 +1,53 @@
+# Build backend: setuptools (src layout), mirroring school-index —
+# its editable-install + package-dir handling is the estate's proven shape.
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "school-calendar"
+version = "0.1.0"
+description = "School Calendar: event source adapters, normalized events store, and ICS feed for the school-assistant estate."
+requires-python = ">=3.12"
+# Runtime dependencies, declared per milestone — only what the code
+# imports. M0 imports nothing external, so there are none yet.
+# Later milestones declare theirs as they land (M2: connector
+# clients; M4: mcp + uvicorn for the feed/MCP server).
+dependencies = []
+
+[project.optional-dependencies]
+# `coverage` is declared explicitly (not left to pytest-cov's transitive
+# pull): scripts/verify.sh drives the coverage CLI directly, so the tool
+# is a first-class dev dependency — the adapter declares it the same way.
+dev = [
+    "pytest",
+    "pytest-cov",
+    "coverage",
+    "mypy",
+]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# --- Quality gates (all enforced by scripts/verify.sh) ---
+
+[tool.pytest.ini_options]
+testpaths = ["tests/unit"]
+
+# Coverage gate: >=90% line coverage of the school_calendar package,
+# measured over the unit tests only. `coverage report` exits non-zero
+# below this.
+[tool.coverage.run]
+source = ["school_calendar"]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+
+# Type gate: mypy strict over the whole package.
+[tool.mypy]
+strict = true
