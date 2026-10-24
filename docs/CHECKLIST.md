@@ -95,10 +95,10 @@ no code changes, so the M0 gates must stay green untouched._
       2026-10-24, REFINEMENT-NOTES.md) as an OPEN ITEM
       in both docs for a later collector milestone.
       Do NOT build it.
-- [ ] Gates green on this VM at the tip
+- [x] Gates green on this VM at the tip
       (`scripts/verify.sh`) — no code changes, so the M0
       gates must pass untouched.
-- [ ] Push `stack/m1-source-inventory` to ululuth;
+- [x] Push `stack/m1-source-inventory` to ululuth;
       gates green on hal9k at the same tip.
 - [ ] Report: branch + tip, inventory summary,
       schema location, open questions for Noah,
